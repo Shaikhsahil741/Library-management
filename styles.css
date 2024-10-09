@@ -1,0 +1,237 @@
+/* General Styles */
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--bg-color);
+    background-image: url("./background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-color: #F7EEDD; /* Light Mode Background */
+    --text-color: #1D5D9B; /* Light Mode Text Color */
+}
+
+body.dark-mode {
+    --bg-color: #8EA7E9; /* Dark Mode Background */
+    --text-color: #FFF2F2; /* Dark Mode Text Color */
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    background-color: #ACE2E1; /* header color */
+    padding: 15px;
+    color: #1D5D9B;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.menu-icon {
+    cursor: pointer;
+    font-size: 30px;
+    margin-right: 20px;
+}
+
+/* Side Drawer */
+.drawer {
+    width: 0;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #ACE2E1;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 1;
+}
+
+.drawer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.drawer ul li {
+    margin: 20px;
+}
+
+.drawer ul li a {
+    text-decoration: none;
+    color: #1D5D9B;
+    display: block;
+    padding: 10px;
+}
+
+.close-drawer {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 36px;
+    color: #1D5D9B;
+    cursor: pointer;
+}
+
+/* Main Content */
+main {
+    margin-left: 20px;
+    padding: 20px;
+}
+
+/* Floating Add Button */
+#add-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ACE2E1;
+    color: #1D5D9B;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#add-button .material-icons {
+    font-size: 30px;
+}
+
+/* Modal */
+/* Modal for expanded view */
+/* Modal for expanded view */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%; /* Set width to 80% of the viewport */
+    height: 80%; /* Set height to 80% of the viewport */
+    max-width: 1000px; /* Optional max-width for larger screens */
+    max-height: 800px; /* Optional max-height for larger screens */
+    overflow: hidden; 
+}
+
+/* For the expanded image */
+#expandedImage {
+    width: 100%; /* Full width of modal */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 100%; /* Limit height to modal height */
+}
+
+
+.close-btn {
+    float: right;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+/* Submit Button */
+button[type="submit"] {
+    background-color: #ACE2E1;
+    color: #1D5D9B;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #ACE2E1;
+}
+
+/* card content */
+
+.content-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Space between cards */
+    margin: 20px;
+}
+
+.content-item {
+    margin: 10px;
+    flex: 0 0 calc(33.33% - 20px); /* Ensure three cards in a row */
+    max-width: calc(33.33% - 20px); /* Same as above to limit the maximum width */
+}
+
+.card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    overflow: hidden; /* Hide overflow */
+    max-height: 400px; /* Set a max height for the card */
+    position: relative; /* Position relative for the icon */
+}
+
+.expand-icon {
+    position: absolute;
+    top: 10px; /* Adjust top position */
+    right: 10px; /* Adjust right position */
+    font-size: 30px; /* Icon size */
+    color: #1D5D9B; /* Icon color */
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    border-radius: 50%; /* Round background */
+    padding: 5px; /* Padding around icon */
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+.expand-icon:hover {
+    background-color: rgba(255, 255, 255, 1); /* Solid background on hover */
+}
+
+
+
+.card h3 {
+    margin: 0 0 10px;
+}
+
+.card p {
+    margin: 0 0 15px;
+}
+
+img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    max-height: 200px; /* Limit the maximum height */
+    object-fit: contain; /* Ensure the image is fully visible */
+}
+
+iframe {
+    width: 100%;
+    height: 100%; /* Set height to 100% to fill the card */
+    border: none;
+    border-radius: 5px;
+    object-fit: cover; /* Ensures the content fits without distortion */
+    max-height: 300px; /* Adjust the max height of the iframe */
+}
+
+
+@media (max-width: 600px) {
+    .modal-content {
+        width: 95%; /* Use 95% width on smaller screens */
+        height: 90%; /* Use 90% height on smaller screens */
+    }
+}

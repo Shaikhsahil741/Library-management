@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Notes App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Side Drawer -->
+    <aside id="drawer" class="drawer">
+        <span class="close-drawer" onclick="toggleDrawer()">&#x2716;</span>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" onclick="loadContent('notes')">Class Notes</a></li>
+                <li><a href="#" onclick="loadContent('assignments')">Assignments</a></li>
+                <li><a href="#" onclick="loadContent('papers')">Previous Question Papers</a></li>
+                <li><a href="#" onclick="loadContent('videos')">Video Lectures</a></li>
+                <li><a href="#" onclick="loadContent('schedule')">Class Schedule</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Header and Drawer Trigger -->
+    <header>
+        <span class="material-icons menu-icon" onclick="toggleDrawer()">menu</span>
+        <h1>Student Notes Portal</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <section>
+            <h1>Welcome to the Student Portal</h1>
+            <p>This platform provides access to all class notes, assignments, video lectures, previous question papers, and class schedules in one convenient place.</p>
+        </section>
+    </main>
+
+    <!-- Floating "Add" Button -->
+    <button id="add-button" onclick="openAddForm()">
+        <span class="material-icons">add</span>
+    </button>
+
+    <!-- Add Form Modal -->
+    <div id="addFormModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeAddForm()">&times;</span>
+            <h2>Add Document</h2>
+            <form id="addDocumentForm">
+                <input type="text" id="docTitle" placeholder="Title" required>
+                <input type="text" id="docRemarks" placeholder="Remarks" required>
+                <select id="docType" required>
+                    <option value="notes">Class Notes</option>
+                    <option value="assignments">Assignments</option>
+                    <option value="papers">Previous Question Papers</option>
+                    <option value="videos">Video Lectures</option>
+                    <option value="schedule">Schedule</option>
+                </select>
+                <input type="file" id="docFile" required> 
+                <button type="submit">Submit</button>
+            </form>
+        </div>  
+    </div>
+
+    
+    <!-- Expand Modal -->
+    <div id="expandModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeExpandModal()">&times;</span>
+            <div id="modalBody">
+                <!-- This will be dynamically populated based on the file type -->
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Firebase SDKs (compat versions) -->
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.14.0/firebase-storage-compat.js"></script>
+
+    <!-- Your custom script -->
+    <script src="scripts.js"></script>
+
+</body>
+</html>
